@@ -1,0 +1,19 @@
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <div class="card-title"></div>
+
+    <form [formGroup]="formulario" novalidate (ngSubmit)="confirmarLogin()">
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="E-mail" formControlName="email">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Senha" formControlName="senha">
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm btn-block" [disabled]="!this.formulario.valid">Entrar</button>
+    </form>
+    <hr />
+    <div *ngIf="this.mensagemErro !== ''">
+      <p class="small text-danger text-center">{{this.mensagemErro}}</p>
+    </div>
+  </div>
+</div>
