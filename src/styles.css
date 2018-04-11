@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.btn-primary{
+    color : #FFF;
+    background-color : #0a8326;
+    border-color: #0a8326;
+}
+.menu {
+    background: #0a8326 !important;
+}
+.nav-link{
+    color: #FFF ! important;
+}

@@ -17,7 +17,8 @@ export class AuthGuard implements CanActivate{
 }
 
 export const ROUTERS: Routes = [
-    {path: '', component: LoginComponent},
+    {path: '', component: HomeComponent, canActivate:[AuthGuard]},
+    {path: 'login', component: LoginComponent},
     {path: 'home', component: HomeComponent, canActivate:[AuthGuard]}
 ]
 

@@ -1,7 +1,20 @@
+
+.card{
+         width: 100vw;
+         height: 100vh;
+         /* background: #6C7A89; */
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         align-items: center
+}
 .card-title {
-    /* background-image: url("/assets/logo-instagram.png"); */
+    background-image: url("../../assets/Logo.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    height: 60px;
+    height: 200px;
     width: 100%;
+}
+.card-body {
+    max-width : 350px;
 }

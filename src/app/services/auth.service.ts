@@ -31,7 +31,7 @@ export class AuthService {
           this.id_token = localStorage.getItem('idToken');
       }
       if (this.id_token === '') {
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
       }
       return this.id_token !== '';
   }

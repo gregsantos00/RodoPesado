@@ -10,12 +10,16 @@ import { HomeComponent } from './home/home.component';
 
 import  {RouterModule} from '@angular/router'
 import { ROUTERS, AuthGuard } from './app.router';
+import { TopoComponent } from './home/topo/topo.component';
+import { RodapeComponent } from './home/rodape/rodape.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    TopoComponent,
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
