@@ -4,6 +4,16 @@
     background-color : #0a8326;
     border-color: #0a8326;
 }
+.btn-primary:disabled {
+    color: #fff;
+    background-color: #0a8326;
+    border-color: #0a8326;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #06661c;
+    border-color: #0a8326;
+}
 .menu {
     background: #0a8326 !important;
 }
