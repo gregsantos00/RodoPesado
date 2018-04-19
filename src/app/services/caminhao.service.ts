@@ -28,9 +28,31 @@ export class CaminhaoService {
                          element.val().apelido,
                      ))
                 });
+                resolve(lista);
             })
-            
-            resolve(lista);
+        })
+    }
+    public getByPLaca(placa : string) : Promise<Caminhao> {
+        return new Promise((resolve, reject)=>
+         {
+            let obj: Caminhao
+            fb.database().ref(`caminhoes`)
+            .orderByChild('placa')
+            .equalTo(placa)
+            .once('value')
+            .then((resposta : any)=>{
+                
+                resposta.forEach(element => {
+                    obj = new Caminhao(
+                        element.val().marca,
+                        element.val().modelo,
+                        element.val().placa,
+                        element.val().ano,
+                        element.val().apelido,
+                    );
+                });
+                resolve(obj)
+            })
         })
     }
 }

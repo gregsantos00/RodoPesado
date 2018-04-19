@@ -12,10 +12,11 @@ import { Router } from '@angular/router';
 })
 export class CaminhaoComponent implements OnInit {
 
-  @ViewChild('closeBtn') closeBtn: ElementRef;
   public maskPlaca = [/[A-z]/, /[A-z]/, /[A-z]/, '-', /\d/, /\d/, /\d/, /\d/];
   public maskAno = [/\d/, /\d/, /\d/, /\d/];
   public listaCaminhoes: Array<Caminhao> = []
+  public placaExiste: boolean = false;
+  public sucesso: boolean = false;
 
   public formulario: FormGroup = new FormGroup({
     'marca': new FormControl("", [Validators.required]),
@@ -42,18 +43,25 @@ export class CaminhaoComponent implements OnInit {
   public salvarCaminhao(): void {
 
     if (this.formulario.valid) {
-
-      var obj = new Caminhao(
-        this.formulario.value.marca,
-        this.formulario.value.modelo,
-        this.formulario.value.placa,
-        this.formulario.value.ano,
-        this.formulario.value.apelido
-      )
-      this.caminhaoService.Incluir(obj)
-        .then(() => {
-          this.listaCaminhoes.push(obj);
-          this.closeBtn.nativeElement.click();
+      this.caminhaoService.getByPLaca(this.formulario.value.placa)
+        .then((x: any) => {
+          if (x === undefined) {
+            this.placaExiste = false;
+            var obj = new Caminhao(
+              this.formulario.value.marca,
+              this.formulario.value.modelo,
+              this.formulario.value.placa,
+              this.formulario.value.ano,
+              this.formulario.value.apelido
+            )
+            this.caminhaoService.Incluir(obj)
+              .then(() => {
+                this.listaCaminhoes.push(obj);
+                this.sucesso = true;
+              });
+          }else{
+            this.placaExiste = true;
+          }
         });
     }
   }
