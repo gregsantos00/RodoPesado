@@ -1,5 +1,26 @@
 <div class="container" style="margin-top: 50px;">
-  <div class="row">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Apelido</th>
+        <th scope="col">Marca - Modelo</th>
+        <th scope="col">Placa</th>
+        <th scope="col">#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of listaCaminhoes">
+        <th scope="row">{{c.apelido}}</th>
+        <td>{{c.marca}} - {{c.modelo}}</td>
+        <td>{{c.placa}}</td>
+        <td>
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row d-flex justify-content-center">
     <div class="form-group">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="limparFormulario();">
         Adicionar Caminhão
@@ -53,8 +74,8 @@
           <br />
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-primary"  [disabled]="this.formulario.invalid" >Salvar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeBtn>Fechar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="this.formulario.invalid">Salvar</button>
         </div>
       </form>
     </div>

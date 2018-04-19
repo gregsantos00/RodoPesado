@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 import { AppComponent } from './app.component';
@@ -30,7 +31,8 @@ import { TextMaskModule } from 'angular2-text-mask';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTERS),
-    TextMaskModule
+    TextMaskModule,
+    AngularFontAwesomeModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
