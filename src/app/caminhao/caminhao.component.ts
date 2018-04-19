@@ -66,6 +66,7 @@ export class CaminhaoComponent implements OnInit {
     }
   }
   public limparFormulario(): void {
+    this.sucesso = false;
     this.formulario.reset();
   }
 }
