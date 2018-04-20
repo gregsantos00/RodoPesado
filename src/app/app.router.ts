@@ -4,6 +4,7 @@ import { HomeComponent } from "./home/home.component";
 import {CaminhaoComponent} from "./caminhao/caminhao.component";
 import { AuthService } from "./services/auth.service";
 import { Injectable } from "@angular/core";
+import { ViajemComponent } from "./viajem/viajem.component";
 
 @Injectable()
 export class AuthGuard implements CanActivate{
@@ -21,6 +22,7 @@ export const ROUTERS: Routes = [
     {path: '', component: HomeComponent, canActivate:[AuthGuard]},
     {path: 'login', component: LoginComponent},
     {path: 'home', component: HomeComponent, canActivate:[AuthGuard]},
-    {path: 'caminhao', component: CaminhaoComponent, canActivate:[AuthGuard]}
+    {path: 'caminhao', component: CaminhaoComponent, canActivate:[AuthGuard]},
+    {path: 'viajem', component: ViajemComponent, canActivate:[AuthGuard]}
 ]
 

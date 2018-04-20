@@ -1,12 +1,12 @@
 <div class="fixed-top">
   <div class="row menu">
-    <div class="container">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink='/caminhao'>Caminhões</a>
+    <div class="container" >
+      <ul class="nav" >
+        <li class="nav-item" >
+          <a class="nav-link" *ngIf="this.logado" routerLinkActive="active" routerLink='/caminhao'>Caminhões</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink='/viajem'>Viajens</a>
+          <a class="nav-link" *ngIf="this.logado" routerLinkActive="active" routerLink='/viajem'>Viajens</a>
         </li>
       </ul>
     </div>

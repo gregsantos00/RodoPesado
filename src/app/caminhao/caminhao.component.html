@@ -14,7 +14,7 @@
         <td>{{c.marca}} - {{c.modelo}}</td>
         <td>{{c.placa}}</td>
         <td>
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <i class="fa fa-trash-o" aria-hidden="true" (click)="deletar(c)" style="cursor: pointer"></i>
         </td>
       </tr>
     </tbody>
@@ -43,7 +43,7 @@
           <div class="form-row">
             <div class="form-group col-md-12">
               <select class="form-control" formControlName="marca">
-                <option value="">Selecione uma opção</option>
+                <option value="">Selecione uma Marca</option>
                 <option value="iveco">Iveco</option>
                 <option value="scania">Scania</option>
                 <option value="mercedes">Mercedes-Benz</option>

@@ -1,11 +1,13 @@
 import * as fb from 'firebase';
 import { Caminhao } from '../model/cominhao.model';
+import { Key } from 'protractor';
 
 export class CaminhaoService {
 
     public Incluir(model: Caminhao) : Promise<boolean>{
         return new Promise((resolve, reject)=>
          {
+            delete model.key;
             fb.database().ref(`caminhoes`).push(model);
             resolve(true);
         })
@@ -21,6 +23,7 @@ export class CaminhaoService {
 
                 resposta.forEach(element => {
                      lista.push(new Caminhao(
+                         element.key,
                          element.val().marca,
                          element.val().modelo,
                          element.val().placa,
@@ -44,6 +47,7 @@ export class CaminhaoService {
                 
                 resposta.forEach(element => {
                     obj = new Caminhao(
+                        element.Key,
                         element.val().marca,
                         element.val().modelo,
                         element.val().placa,
@@ -54,5 +58,15 @@ export class CaminhaoService {
                 resolve(obj)
             })
         })
+    }
+    public Delete(caminhao : Caminhao) : Promise<void> {
+        return new Promise((resolve, reject)=>
+        {
+            fb.database().ref(`caminhoes`).child(caminhao.key).remove();
+
+            resolve();
+
+        });
+
     }
 }

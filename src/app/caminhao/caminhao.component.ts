@@ -19,6 +19,7 @@ export class CaminhaoComponent implements OnInit {
   public sucesso: boolean = false;
 
   public formulario: FormGroup = new FormGroup({
+    'key': new FormControl(null),
     'marca': new FormControl("", [Validators.required]),
     'modelo': new FormControl(null, [Validators.required]),
     'placa': new FormControl(null, [Validators.required, Validators.minLength(8)]),
@@ -33,7 +34,6 @@ export class CaminhaoComponent implements OnInit {
     this.caminhaoService.ListarCaminhao()
       .then((lista: Caminhao[]) => {
         this.listaCaminhoes = lista;
-        console.log(this.listaCaminhoes);
       }
       )
 
@@ -48,6 +48,7 @@ export class CaminhaoComponent implements OnInit {
           if (x === undefined) {
             this.placaExiste = false;
             var obj = new Caminhao(
+              this.formulario.value.key,
               this.formulario.value.marca,
               this.formulario.value.modelo,
               this.formulario.value.placa,
@@ -56,10 +57,11 @@ export class CaminhaoComponent implements OnInit {
             )
             this.caminhaoService.Incluir(obj)
               .then(() => {
-                this.listaCaminhoes.push(obj);
+                this.caminhaoService.ListarCaminhao()
+                  .then((x: Caminhao[]) => this.listaCaminhoes = x);
                 this.sucesso = true;
               });
-          }else{
+          } else {
             this.placaExiste = true;
           }
         });
@@ -68,5 +70,11 @@ export class CaminhaoComponent implements OnInit {
   public limparFormulario(): void {
     this.sucesso = false;
     this.formulario.reset();
+    this.formulario.controls['marca'].setValue("");
+  }
+  public deletar(caminhao: Caminhao): void {
+    this.caminhaoService.Delete(caminhao);
+    this.caminhaoService.ListarCaminhao()
+      .then((x: Caminhao[]) => this.listaCaminhoes = x);
   }
 }

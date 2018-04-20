@@ -16,6 +16,7 @@ import { RodapeComponent } from './home/rodape/rodape.component';
 import { CaminhaoComponent } from './caminhao/caminhao.component';
 
 import { TextMaskModule } from 'angular2-text-mask';
+import { ViajemComponent } from './viajem/viajem.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TextMaskModule } from 'angular2-text-mask';
     HomeComponent,
     TopoComponent,
     RodapeComponent,
-    CaminhaoComponent
+    CaminhaoComponent,
+    ViajemComponent
   ],
   imports: [
     BrowserModule,
