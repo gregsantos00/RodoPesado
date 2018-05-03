@@ -4,18 +4,22 @@
     <div class="containerFormulario" *ngIf="!this.sucesso">
       <div class="form-row">
         <div class="form-group col-md-12">
-          <select class="form-control" formControlName="marca">
-            <option value="">Selecione uma opção</option>
-            <option value="iveco">Iveco</option>
-            <option value="scania">Scania</option>
-            <option value="mercedes">Mercedes-Benz</option>
-            <option value="man">MAN</option>
-          </select>
+          <input type="text" class="form-control" placeholder="Motorista" formControlName="motorista" />
+          <!-- <ul class="list-group" style="position:absolute">
+            <li class="list-group-item" *ngFor="let result of ofertas | async">
+              <a [routerLink]="['/oferta',result.id]" (click)="LimparPesquisa()">
+                {{result.titulo | textoReduzido:15}}
+              </a>
+            </li>
+          </ul> -->
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-12">
-          <input type="text" class="form-control" placeholder="Modelo" autocomplete="off" formControlName="modelo">
+          <select class="form-control" formControlName="caminhao" placeholder="Motorista">
+            <option value="">Selecione um Caminhão</option>
+            <option *ngFor="let c of caminhoes" [value]="c.key">{{c.placa}} - {{c.apelido}}</option>
+          </select>
         </div>
       </div>
       <div class="form-row">
