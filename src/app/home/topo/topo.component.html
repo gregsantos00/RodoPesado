@@ -1,4 +1,38 @@
-<div class="fixed-top">
+<div *ngIf="this.logado">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink='/caminhao'>Caminhões</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Viagens
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLinkActive="active" routerLink='/viajem'>Cadastro</a>
+            <!-- <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a> -->
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='#' (click)='LogOut()'>Sair</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<!-- <div class="fixed-top">
   <div class="row menu">
     <div class="container" >
       <ul class="nav" >
@@ -11,5 +45,4 @@
       </ul>
     </div>
   </div>
-</div>
-
+</div> -->

@@ -16,29 +16,14 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-12">
-          <select class="form-control" formControlName="caminhao" placeholder="Motorista">
+          <select class="form-control" formControlName="caminhao">
             <option value="">Selecione um Caminhão</option>
             <option *ngFor="let c of caminhoes" [value]="c.key">{{c.placa}} - {{c.apelido}}</option>
           </select>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input type="text" class="form-control" placeholder="Placa" autocomplete="off" formControlName="placa" [textMask]="{mask: maskPlaca, guide: false}">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-2">
-          <input type="text" class="form-control" placeholder="Ano" autocomplete="off" formControlName="ano" [textMask]="{mask: maskAno, guide: false}">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <input type="text" class="form-control" placeholder="Apelido" autocomplete="off" formControlName="apelido">
-        </div>
-      </div>
       <br />
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="this.formulario.invalid" *ngIf="!this.sucesso">Salvar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="this.formulario.invalid">Salvar</button>
   </form>
 </div>
