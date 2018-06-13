@@ -1,7 +1,7 @@
 <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
   <form [formGroup]="formulario" novalidate (ngSubmit)="salvarViajem()">
     <h5>Cadastro de Viajens</h5>
-    <div class="containerFormulario" *ngIf="!this.sucesso">
+    <div class="containerFormulario">
       <div class="form-row">
         <div class="form-group col-md-12">
           <input type="text" class="form-control" placeholder="Motorista" formControlName="motorista" />
